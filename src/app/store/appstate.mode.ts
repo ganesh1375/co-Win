@@ -1,11 +1,11 @@
-import { sessionReducer } from "../state/pin.reducers";
-import { PinState } from "../state/pin.state";
+import { sessionReducer } from '../state/pin.reducers';
+import { PinState } from '../state/pin.state';
 
 export interface AppState{
-    sessions:PinState
+    sessions: PinState;
 }
 
-export const appReducer=
+export const appReducer =
 {
-    sessions:sessionReducer
-}
+    sessions: sessionReducer
+};

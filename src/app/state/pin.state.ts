@@ -1,12 +1,12 @@
-import { Sessions } from "../store/sessions.model";
+import { Sessions } from '../store/sessions.model';
 
 
 export interface PinState
 {
-    sessions:Sessions[];
+    sessions: Sessions[];
 }
 
 
-export const InitialState:PinState={
-    sessions:[]
-}
+export const InitialState: PinState = {
+    sessions: []
+};

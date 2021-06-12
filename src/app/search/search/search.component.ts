@@ -12,49 +12,49 @@ import { AppState } from 'src/app/store/appstate.mode';
 })
 export class SearchComponent implements OnInit {
 
-  changingBackGroundForPin=false;
-  changingBackGroundForDist=false;
-  date2:any;
-  pincode:any;
+  changingBackGroundForPin = false;
+  changingBackGroundForDist = false;
+  date2: any;
+  pincode: any;
   currentdate: any;
-  sessions:any;
-  constructor(private store:Store<AppState>) { }
+  sessions: any;
+  constructor(private store: Store<AppState>) { }
 
-  searchByPinForm:any;
+  searchByPinForm: any;
 
   ngOnInit(): void {
-   
-    this.searchByPinForm=new FormGroup({
-      pin:new FormControl('',Validators.required),
-      date:new FormControl('',Validators.required)
+
+    this.searchByPinForm = new FormGroup({
+      pin: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required)
     });
 
   }
 
   pinSelected()
   {
-    this.changingBackGroundForPin=true;
-    this.changingBackGroundForDist=false;
+    this.changingBackGroundForPin = true;
+    this.changingBackGroundForDist = false;
   }
   districtSelected()
   {
-    this.changingBackGroundForPin=false;
-    this.changingBackGroundForDist=true;
+    this.changingBackGroundForPin = false;
+    this.changingBackGroundForDist = true;
   }
 
-  onSubmit(value:any)
+  onSubmit(value: any)
   {
     console.log(this.searchByPinForm.value);
-    this.currentdate=value.date;
-    console.log(value.date)
-   this.date2=this.currentdate[8]+this.currentdate[9]+this.currentdate[7]+this.currentdate[5]+this.currentdate[6]+
-   this.currentdate[4]+this.currentdate[0]+this.currentdate[1]+this.currentdate[2]+this.currentdate[3]
-    this.pincode=value.pin;
-    this.store.dispatch(loadSessions({pin:this.pincode,date:this.date2}));
-    this.store.select(getSessions).subscribe(data=>
+    this.currentdate = value.date;
+    console.log(value.date);
+    this.date2 = this.currentdate[8] + this.currentdate[9] + this.currentdate[7] + this.currentdate[5] + this.currentdate[6] +
+   this.currentdate[4] + this.currentdate[0] + this.currentdate[1] + this.currentdate[2] + this.currentdate[3];
+    this.pincode = value.pin;
+    this.store.dispatch(loadSessions({pin: this.pincode, date: this.date2}));
+    this.store.select(getSessions).subscribe(data =>
       {
-        this.sessions=data;
-      })
+        this.sessions = data;
+      });
   }
 
 }
