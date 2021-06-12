@@ -1,0 +1,71 @@
+<div class="container mt-2">
+    <h1 class="text-center">Check your nearest vaccination center and slots availability</h1>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="btn-group-lg" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary w-50" (click)="pinSelected()"
+                    [class.bg-primary]="changingBackGroundForPin">Search By PIN</button>
+                <button type="button" class="btn btn-secondary w-50" (click)="districtSelected()"
+                    [class.bg-primary]="changingBackGroundForDist">Search By District</button>
+            </div>
+            <div class="mt-4">
+                <form [formGroup]="searchByPinForm" (ngSubmit)="onSubmit(searchByPinForm.value)">
+                    <div class="form-group ml-2 d-flex">
+                        <label for="user"></label>
+                        <input type="text" class="form-control w-70" id="user" formControlName="pin" placeholder="Enter Pin"
+                            required="required">
+                        <input type="date" class="form-control w-50" formControlName="date" required>
+                        <div class="search ml-2">
+                            <button class="btn btn-success w-100" type="submit" [disabled]="!searchByPinForm.valid">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-12" *ngFor="let i of sessions">
+           <div class="d-flex justify-content-between flex-md-row flex-column">
+                <div> 
+                    <p style="font-weight: bold;">{{i.name}}</p>
+                    <p>{{i.address}},&nbsp;{{i.district_name}},&nbsp;{{i.state_name}}</p>
+                    <p>{{i.pincode}}</p>
+                </div>
+                <div>
+                    <h4>Timings</h4>
+                    <p>{{i.from}}</p>
+                    <p>{{i.to}}</p>
+                </div>
+                <div>
+                    <h4>Available_capacity</h4>
+                    <p>{{i.available_capacity}}</p>
+                </div>
+                <div>
+                    <h4>Available_capacity_dose 1</h4>
+                    <p>{{i.available_capacity_dose1}}</p>
+                </div>
+                <div>
+                    <h4>Available_capacity_dose 2</h4>
+                    <p>{{i.available_capacity_dose2}}</p>
+                </div>
+                <div>
+                    <h4>Fee Type</h4>
+                    <p>{{i.fee_type}}</p>
+                </div>
+                <div>
+                    <h4>Age</h4>
+                    <p>{{i.min_age_limit}}</p>
+                </div>
+                <div>
+                    <h4>Vaccine</h4>
+                    <p>{{i.vaccine}}</p>
+                </div>
+           </div>
+           <hr>
+        </div>
+      
+    </div>
+</div>
