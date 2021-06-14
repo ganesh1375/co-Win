@@ -14,14 +14,14 @@ const routes: Routes = [
   },
   {
     path: 'search', component: SearchComponent,
-    children:[
+    children: [
       {
-        path:"pin",
-        component:SearchByPinComponent
+        path: 'pin',
+        component: SearchByPinComponent
       },
       {
-        path:"districts",
-        component:SearchByDistrictsComponent
+        path: 'districts',
+        component: SearchByDistrictsComponent
       }
     ]
   }

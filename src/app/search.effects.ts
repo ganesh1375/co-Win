@@ -25,7 +25,7 @@ export class SearchEffects {
     effectName$ = createEffect(() => this.action.pipe(ofType(loadState), exhaustMap((action) => {
         return this.service.getStates().pipe(map((states) => {
             return loadStateSuccess(states);
-        }))
+        }));
     })));
 
     effectName3$ = createEffect(
@@ -33,8 +33,8 @@ export class SearchEffects {
             ofType(loadDist), exhaustMap((action) => {
                 return this.service.getDistricts(action.id).pipe(map((districts) => {
                     // console.log(districts)
-                    return loadDistSuccess(districts)
-                }))
+                    return loadDistSuccess(districts);
+                }));
             })
         )
     );

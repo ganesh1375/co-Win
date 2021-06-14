@@ -23,30 +23,30 @@ export class SearchComponent implements OnInit {
   pincode: any;
   currentdate: any;
   sessions: any;
-  pinSearchView=false;
-  distSearchView=false;
-  optionArray:any;
-  addingOptionText:any;
-  districtsList:District[]=[];
-  searchByDistrictsForm:any;
-  districtId:any;
+  pinSearchView = false;
+  distSearchView = false;
+  optionArray: any;
+  addingOptionText: any;
+  districtsList: District[] = [];
+  searchByDistrictsForm: any;
+  districtId: any;
   constructor(private store: Store<AppState>) { }
   searchByPinForm: any;
   ngOnInit(): void {
   }
 
-  pinSelected()
+  pinSelected(): any
   {
     this.changingBackGroundForPin = true;
     this.changingBackGroundForDist = false;
-    this.pinSearchView=true;
-    this.distSearchView=false;
+    this.pinSearchView = true;
+    this.distSearchView = false;
   }
-  districtSelected()
+  districtSelected(): any
   {
     this.changingBackGroundForPin = false;
     this.changingBackGroundForDist = true;
-    this.pinSearchView=false;
-    this.distSearchView=true;
+    this.pinSearchView = false;
+    this.distSearchView = true;
   }
 }

@@ -1,4 +1,4 @@
 export interface District{
-    district_id:number,
-    district_name:string
+    district_id: number;
+    district_name: string;
 }

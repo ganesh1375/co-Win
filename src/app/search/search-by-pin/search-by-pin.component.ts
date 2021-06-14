@@ -18,22 +18,22 @@ export class SearchByPinComponent implements OnInit {
   pincode: any;
   currentdate: any;
   sessions: any;
-  pinSearchView=false;
-  noSessionsView=false;
-  availableSessions=false;
-  constructor(private store:Store<AppState>) { }
+  pinSearchView = false;
+  noSessionsView = false;
+  availableSessions = false;
+  constructor(private store: Store<AppState>) { }
 
-  get pin() {
-    return this.searchByPinForm.get('pin')
+  get pin(): any {
+    return this.searchByPinForm.get('pin');
   }
   ngOnInit(): void {
     this.searchByPinForm = new FormGroup({
-      pin: new FormControl('',[Validators.required,Validators.maxLength(6),Validators.minLength(6)]),
+      pin: new FormControl('', [Validators.required, Validators.maxLength(6), Validators.minLength(6)]),
       date: new FormControl('', Validators.required)
     });
 
   }
-  onSubmit(value: any)
+  onSubmit(value: any): any
   {
     this.currentdate = value.date;
     console.log(value.date);
@@ -43,15 +43,15 @@ export class SearchByPinComponent implements OnInit {
     this.store.dispatch(loadSessions({pin: this.pincode, date: this.date2}));
     this.store.select(getSessions).subscribe(data =>
       {
-        if(data.length==0)
+        if (data.length === 0)
         {
-          this.noSessionsView=true;
-          this.availableSessions=false;
+          this.noSessionsView = true;
+          this.availableSessions = false;
         }
         else{
         this.sessions = data;
-        this.noSessionsView=false;
-        this.availableSessions=true;
+        this.noSessionsView = false;
+        this.availableSessions = true;
         }
       });
   }

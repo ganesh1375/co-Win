@@ -5,7 +5,7 @@ import { InitialState } from './pin.state';
 
 
 
-export const _sessionReducer = createReducer(InitialState, on(loadSessions, (state, action) => {
+export const sessionReducers = createReducer(InitialState, on(loadSessions, (state, action) => {
     return {
         ...state,
         pin: action.pin,
@@ -16,23 +16,23 @@ export const _sessionReducer = createReducer(InitialState, on(loadSessions, (sta
         ...state,
         sessions: action.sessions
     };
-}),on(loadSessionsByDistricts,(state,action)=>
+}), on(loadSessionsByDistricts, (state, action) =>
 {
     return{
         ...state,
-        id:action.id,
-        date:action.date
-    }
-}),on(loadSessionsSuccessByDistricts,(state,action)=>
+        id: action.id,
+        date: action.date
+    };
+}), on(loadSessionsSuccessByDistricts, (state, action) =>
 {
     return{
         ...state,
-        sessions:action.sessions
-    }
+        sessions: action.sessions
+    };
 }));
 
 
 
 export function sessionReducer(state: any, action: any): any {
-    return _sessionReducer(state, action);
+    return sessionReducers(state, action);
 }

@@ -1,11 +1,11 @@
-import { States } from "src/app/store/stateList.mode";
+import { States } from 'src/app/store/stateList.mode';
 
 export interface StatesListState
 {
-    states:States[]
+    states: States[];
 }
 
-export const InitialState:StatesListState=
+export const InitialState: StatesListState =
 {
-    states:[]
-}
+    states: []
+};

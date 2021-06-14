@@ -1,9 +1,9 @@
-import { District } from "src/app/store/districtList.model";
+import { District } from 'src/app/store/districtList.model';
 
 export interface DistrictState{
-    districts:District[]
+    districts: District[];
 }
 
-export const InitialState:DistrictState={
-    districts:[]
-}
+export const InitialState: DistrictState = {
+    districts: []
+};
