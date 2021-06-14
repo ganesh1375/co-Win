@@ -22,6 +22,8 @@ import { appReducer } from './store/appstate.mode';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchEffects } from './search.effects';
+import { SearchByPinComponent } from './search/search-by-pin/search-by-pin.component';
+import { SearchByDistrictsComponent } from './search/search-by-districts/search-by-districts.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SearchEffects } from './search.effects';
     MainNavComponent,
     HomeComponent,
     SearchComponent,
-    CheckingSlotsComponent
+    CheckingSlotsComponent,
+    SearchByPinComponent,
+    SearchByDistrictsComponent
   ],
   imports: [
     BrowserModule,

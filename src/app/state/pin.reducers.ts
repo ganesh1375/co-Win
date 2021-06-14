@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadSessions, loadSessionsSuccess } from './pin.action';
+import { loadSessions, loadSessionsByDistricts, loadSessionsSuccess, loadSessionsSuccessByDistricts } from './pin.action';
 import { InitialState } from './pin.state';
 
 
@@ -16,6 +16,19 @@ export const _sessionReducer = createReducer(InitialState, on(loadSessions, (sta
         ...state,
         sessions: action.sessions
     };
+}),on(loadSessionsByDistricts,(state,action)=>
+{
+    return{
+        ...state,
+        id:action.id,
+        date:action.date
+    }
+}),on(loadSessionsSuccessByDistricts,(state,action)=>
+{
+    return{
+        ...state,
+        sessions:action.sessions
+    }
 }));
 
 

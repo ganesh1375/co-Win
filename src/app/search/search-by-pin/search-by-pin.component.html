@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-4">
+                <form [formGroup]="searchByPinForm" (ngSubmit)="onSubmit(searchByPinForm.value)">
+                    <div class="form-group ml-2 d-flex flex-md-row flex-column">
+                        <div>
+                            <input type="text" class="form-control w-100 my-1" formControlName="pin" placeholder="Enter Pin"
+                            required="required" max="6" [class.is-invalid]="pin.invalid&&((pin.touched))">
+                        <span class="text-danger" *ngIf="pin.invalid&&((pin.touched))">
+                            <small *ngIf="pin.errors.required"> Required</small>
+                            <small *ngIf="pin.errors.minlength">Please enter valid Pincode</small>
+                        </span>
+                        </div>
+                        <input type="date" class="form-control w-100 my-1 ml-md-1 ml-0" formControlName="date" required>
+                        <div class="search ml-2">
+                            <button class="btn btn-success w-100 my-1" type="submit"
+                                [disabled]="!searchByPinForm.valid">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-2" *ngIf="availableSessions">
+    <div class="row">
+        <div class="col-12 border p-md-3 p-2  mb-3" style="border-radius: 30px;" *ngFor="let i of sessions">
+            <!-- <div class="d-flex justify-content-between flex-md-row flex-column"> -->
+            <div class="row text-center">
+                <div class="col-md-4 col-12">
+                    <p style="font-weight: bold;">{{i.name}}</p>
+                    <p>{{i.address}},&nbsp;{{i.district_name}},&nbsp;{{i.state_name}}</p>
+                    <p>{{i.pincode}}</p>
+                </div>
+                <div class="col-4 col-md-1">
+                    <h4 style="font-weight: bold;">Fee Type</h4>
+                    <p>{{i.fee_type}}</p>
+                </div>
+                <div class="col-4 col-md-1">
+                    <h4 style="font-weight: bold;">Dose 1</h4>
+                    <p>{{i.available_capacity_dose1}}</p>
+                </div>
+                <div class="col-4 col-md-1">
+                    <h4 style="font-weight: bold;">Dose 2</h4>
+                    <p>{{i.available_capacity_dose2}}</p>
+                </div>
+                <div class="col-4 col-md-1 d-flex justify-content-center align-content-center">
+                    <div class="bg-info p-3" style="border-radius: 20px;">
+                        <h4 style="font-weight: bold;">Age</h4>
+                        <p>{{i.min_age_limit}}+</p>
+                    </div>
+                </div>
+                <div class="col-4 col-md-1">
+                    <h4 style="font-weight: bold;">Available</h4>
+                    <p>{{i.available_capacity}}</p>
+                </div>
+                <div class="col-4 col-md-1 ">
+                    <h4 style="font-weight: bold;">Timings</h4>
+                    <p>{{i.from}}</p>
+                    <p>{{i.to}}</p>
+                </div>
+                <div class="col-12 col-md-2 d-flex justify-content-center align-content-center">
+                    <div class="bg-warning p-2" style="border-radius: 20px;">
+                        <h4 style="font-weight: bold;">Vaccine</h4>
+                        <p class="">{{i.vaccine}}</p>
+                    </div>
+                </div>
+                <!-- <div class="col-6 col-md-2 ">
+                <h4 style="font-weight: bold;">Slots</h4>
+                <p>{{i.slots}}</p>
+            </div> -->
+            </div>
+            <!-- </div> -->
+            <!-- <hr> -->
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="noSessionsView">
+    <div class="row">
+        <div class="col-12">
+            <div class="alert">
+                <div class="alert alert-warning">No Available Sessions</div>
+            </div>
+        </div>
+    </div>
+</div>
