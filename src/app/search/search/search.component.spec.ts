@@ -5,13 +5,14 @@ import { SearchComponent } from './search.component';
 import { HttpClientTestingModule} from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StoreModule.forRoot(appReducer), HttpClientTestingModule, HttpClientModule, ReactiveFormsModule],
+      imports: [StoreModule.forRoot(appReducer), HttpClientTestingModule, HttpClientModule, ReactiveFormsModule, RouterTestingModule],
       declarations: [ SearchComponent ]
     })
     .compileComponents();
